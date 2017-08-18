@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+
+  function getSum(num1, num2) {
+    return num1 + num2;
+  }
+
+  document.write(`Number of arguments ${getSum.length} <br />`);
+
+  function Mammal(name) {
+    this.name = name;
+    this.getInfo = function() {
+      return `The Mammals name is ${this.name}`;
+    }
+  }
+
+  Mammal.prototype.sound = 'Grrr';
+
+  Mammal.prototype.makeSound = function() {
+    return `${this.name} says ${this.sound}`;
+  }
+
+  var grover = new Mammal('grover');
+
+  document.write(`${grover.makeSound()} <br />`);
+
+  console.log(grover.sound);
+
+  for (var prop in grover) {
+    document.write(`${prop} : ${grover[prop]} <br />`);
+  }
+
+  document.write(`Name Property of grover ${grover.hasOwnProperty('name')} <br />`);
+  document.write(`Sound Property of grover ${grover.hasOwnProperty('sound')} <br />`);
+
+  Array.prototype.inArray = function(value) {
+    for (var i = 0; i < this.length; i++) {
+      if (this[i] === value) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  document.write(` ${[1,2,3].inArray(3)} <br />`);
+
+
+
+
+</script>
+</html>

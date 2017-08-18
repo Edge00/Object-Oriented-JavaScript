@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+
+function SecretCode() {
+  var secretNum = 78;
+
+  this.guessNum = function(num) {
+    if (num > secretNum) {
+      return 'Lower';
+    } else if (num < secretNum) {
+      return 'Higher';
+    } else {
+      return 'You guessed it!'
+    }
+  }
+}
+
+var secret = new SecretCode();
+
+console.log(secret);
+
+document.write(`Value of secret Nmu is : ${secret.SecretCode}  <br />`);
+document.write(`Is 70 the num : ${secret.guessNum(70)}  <br />`);
+document.write(`Is 78 the num : ${secret.guessNum(78)}  <br />`);
+
+SecretCode.prototype.getSecretNum = function() {
+  return this.secretNum;
+}
+
+document.write(`The secret num is : ${secret.getSecretNum()}  <br />`);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

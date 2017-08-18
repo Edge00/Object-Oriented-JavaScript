@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>object Oriented Javascript</title>
+</head>
+<body>
+
+</body>
+<script>
+  // Object
+  var customer = {
+    name: 'Tom Smith',
+    speak: function() {
+      return 'My name is ' + this.name;
+    },
+    address: {
+      street: '123 Main St',
+      city: 'Shanghai',
+      state: 'PA'
+    }
+  };
+
+
+
+  document.write( customer.speak() + '<br />');
+
+  document.write( customer.name + ' lives at ' + customer.address.street + '<br />');
+
+  customer.address.country = 'China';
+
+  document.write( customer.address.country + '<br />');
+
+  // constructor function
+  function Person(name, street) {
+    this.name = name;
+    this.street = street;
+    this.adv = '123';
+
+    this.info = function() {
+      return 'My name is ' + this.name + ' and I live on ' + this.street;
+    }
+  }
+
+  console.log(Person);
+
+  var bobSmith = new Person('Bob Smith', '234 Main St');
+
+  console.log(bobSmith.adv);
+
+  document.write( bobSmith.info() + '<br />');
+
+  document.write( 'Bob Smith is a Person? ' + (bobSmith instanceof Person) + '<br />');
+
+  function changeName(person) {
+    person.name = 'Sue Smith';
+  }
+
+  changeName(bobSmith);
+
+  document.write(`Bob Smith became ${bobSmith.name} <br />`);
+
+  var person1 = new Person('Paul', '123 Main St');
+  var person2 = new Person('Paul', '123 Main St');
+
+  document.write(`Are they equal? ${person1 === person2} <br />`);
+
+</script>
+</html>
