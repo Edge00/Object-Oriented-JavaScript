@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+
+function Animal() {
+  this.name = 'Animal';
+
+  this.toString = function() {
+    return `My name is ${this.name}`;
+  };
+}
+
+function Canine() {
+  this.name = 'Canine';
+}
+
+function Wolf() {
+  this.name = 'Wolf';
+}
+
+Canine.prototype = new Animal();
+Wolf.prototype = new Canine();
+
+Canine.prototype.constructor = Canine;
+Wolf.prototype.constructor = Wolf;
+
+var arcticWolf = new Wolf();
+
+document.write(`${arcticWolf.toString()} <br />`);
+document.write(`Wolf instanceof Animal ? ${arcticWolf instanceof Animal} <br />`);
+
+Animal.prototype.sound = 'Grrr';
+Animal.prototype.getSound = function() {
+  return `${this.name} says ${this.sound}`;
+};
+
+Canine.prototype.sound = 'Woof';
+Wolf.prototype.sound = 'Grrrrr Woof';
+
+document.write(`${arcticWolf.getSound()} <br />`);
+
+function Rodent() {
+  this.name = 'Rodent';
+}
+
+function Rat() {
+  this.name = 'Rat';
+}
+
+Rodent.prototype = new Animal();
+Rat.prototype = Rodent.prototype;
+Rodent.prototype.constructor = Rodent;
+Rat.prototype.constructor = Rat;
+
+var caneRat = new Rat();
+
+document.write(`${caneRat.toString()} <br />`);
+
+</script>
+</html>

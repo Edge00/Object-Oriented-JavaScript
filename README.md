@@ -1,3 +1,3 @@
-#Object Oriented JavaScrip
+# Object Oriented JavaScrip
 
-Note for Object Oriented JavaScrip demos
+Notes for Object Oriented JavaScrip demos
